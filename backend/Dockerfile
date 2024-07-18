@@ -1,4 +1,4 @@
-# Utilisez une image PHP avec Composer pré-installé
+# Utiliser une image PHP avec Composer pré-installé
 FROM php:8.2-fpm
 
 # Installer les dépendances nécessaires
