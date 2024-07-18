@@ -29,4 +29,11 @@ class LoginController extends Controller
         ]);
     }
 
+    public function logout(Request $request)
+    {
+        // Déconnexion de l'utilisateur
+        Auth::logout();
+
+        return response()->json(['message' => 'Déconnexion réussie'], 200);
+    }
 }
