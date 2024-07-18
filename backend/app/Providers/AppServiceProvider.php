@@ -11,7 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::except([
+            'submit'
+        ]);
     }
 
     /**
