@@ -11,3 +11,5 @@ Route::get('/', function () {
 Route::post('/api/register', [RegisterController::class, 'register'])->middleware('api');
 
 Route::post('/api/login', [LoginController::class, 'login'])->middleware('api');
+
+Route::post('/api/logout', [LoginController::class, 'logout'])->name('logout');
