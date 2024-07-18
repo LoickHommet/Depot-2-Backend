@@ -12,7 +12,7 @@ services:
     volumes:
       - .:/var/www/html
     environment:
-      - "PHP_VERSION=8.1"
+      - "PHP_VERSION=8.2"
       - "DB_HOST=db"
       - "DB_DATABASE=laravel"
       - "DB_USERNAME=root"
