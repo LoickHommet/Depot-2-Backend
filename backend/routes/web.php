@@ -15,4 +15,14 @@ Route::post('/api/login', [LoginController::class, 'login'])->middleware('api');
 
 Route::post('/api/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::post('/api/expenses', [ExpenseController::class, 'store'])->middleware('api');
+Route::get('/api/expenses', [ExpenseController::class, 'index']);
+
+Route::get('/api/expenses/{id}', [ExpenseController::class, 'getExpenseById']);
+
+Route::get('/api/expenses/grouped', [ExpenseController::class, 'getGroupedExpenses']);
+
+Route::post('/api/addExpenses', [ExpenseController::class, 'store'])->middleware('api');
+
+Route::put('/api/expenses/edit/{id}', [ExpenseController::class, 'update'])->middleware('api');
+
+Route::delete('/api/expenses/delete/{id}', [ExpenseController::class, 'destroy']);
