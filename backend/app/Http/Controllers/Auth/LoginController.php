@@ -19,9 +19,8 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return response()->json(['message' => 'Authentification réussie'], 200);
+            $user = Auth::user();
+            return response()->json(['user' => $user]);
         }
 
         throw ValidationException::withMessages([
