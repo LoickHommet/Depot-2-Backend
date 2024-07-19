@@ -18,10 +18,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'api/register',
             'api/expenses',
             'api/addExpenses',
-            'api/expenses/{id}',
-            'api/expenses/edit/{id}',
+            'api/expenses/*',
+            'api/expenses/edit/*',
             'api/expenses/grouped',
-            'api/expenses/delete/{id}',
+            'api/expenses/delete/*',
             'api'
         ]);
     })
