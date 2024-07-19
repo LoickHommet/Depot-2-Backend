@@ -13,15 +13,15 @@ class ExpenseController extends Controller
     {
         $userId = $request->query('user_id');
         $category = $request->query('category');
-    
+
         $query = Expense::where('user_id', $userId);
-    
+
         if ($category) {
             $query->where('category_id', $category);
         }
-    
+
         $expenses = $query->get();
-    
+
         return response()->json($expenses);
     }
 
@@ -41,7 +41,6 @@ class ExpenseController extends Controller
         });
 
         return response()->json($groupedExpenses);
-
     }
 
     public function store(Request $request)
@@ -64,6 +63,27 @@ class ExpenseController extends Controller
 
         return response()->json($expense, 201);
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'amount' => 'required|numeric',
+            'category' => 'required|string',
+            'date' => 'required|date',
+            'description' => 'nullable|string',
+        ]);
+
+        $expense = Expense::findOrFail($id);
+        $expense->update([
+            'amount' => $request->amount,
+            'category' => $request->category,
+            'date' => $request->date,
+            'description' => $request->description,
+        ]);
+
+        return response()->json($expense, 200);
+    }
+
 
     public function destroy($id)
     {
