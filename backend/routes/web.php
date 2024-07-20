@@ -21,6 +21,10 @@ Route::get('/api/expenses/categories', [ExpenseController::class, 'getCategories
 
 Route::get('/api/expenses/{id}', [ExpenseController::class, 'getExpenseById']);
 
+Route::get('/api/monthly', [ExpenseController::class, 'getMonthlyExpenses']);
+
+Route::get('/api/category-expenses', [ExpenseController::class, 'getCategoryExpenses']);;
+
 Route::get('/api/expenses/grouped', [ExpenseController::class, 'getGroupedExpenses']);
 
 Route::post('/api/addExpenses', [ExpenseController::class, 'store'])->middleware('api');
