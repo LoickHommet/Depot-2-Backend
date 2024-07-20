@@ -17,12 +17,25 @@ class ExpenseController extends Controller
         $query = Expense::where('user_id', $userId);
 
         if ($category) {
-            $query->where('category_id', $category);
+            $query->where('category', $category);
         }
 
         $expenses = $query->get();
 
         return response()->json($expenses);
+    }
+
+    public function getCategories(Request $request)
+    {
+        $userId = $request->query('user_id');
+
+        $categories = Expense::where('user_id', $userId)
+            ->select('category')
+            ->distinct()
+            ->get()
+            ->pluck('category');
+
+        return response()->json($categories);
     }
 
     public function getExpenseById($id)

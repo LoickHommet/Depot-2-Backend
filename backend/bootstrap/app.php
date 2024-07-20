@@ -19,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'api/expenses',
             'api/addExpenses',
             'api/expenses/*',
+            'api/expenses/categories',
             'api/expenses/edit/*',
             'api/expenses/grouped',
             'api/expenses/delete/*',

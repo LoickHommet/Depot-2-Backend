@@ -17,6 +17,8 @@ Route::post('/api/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/api/expenses', [ExpenseController::class, 'index']);
 
+Route::get('/api/expenses/categories', [ExpenseController::class, 'getCategories']);
+
 Route::get('/api/expenses/{id}', [ExpenseController::class, 'getExpenseById']);
 
 Route::get('/api/expenses/grouped', [ExpenseController::class, 'getGroupedExpenses']);
