@@ -60,25 +60,24 @@ class ExpenseController extends Controller
     public function getCategoryExpenses(Request $request)
     {
         $userId = $request->query('user_id');
-        $category = $request->query('category');
-
+    
         try {
             $expenses = Expense::where('user_id', $userId)
-                ->where('category', $category)
                 ->get();
-
+    
             $categoryExpenses = $expenses->groupBy('category')->map(function ($group) {
                 return [
                     'name' => $group->first()->category,
                     'total' => $group->sum('amount')
                 ];
             })->values();
-
+    
             return response()->json($categoryExpenses);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error fetching expenses'], 500);
         }
     }
+    
 
 
     public function getGroupedExpenses()
