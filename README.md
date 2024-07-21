@@ -53,5 +53,3 @@ Mon Projet Backend est une API RESTful construite avec Laravel pour gérer les d
 
 - GET /api/category-expenses : Récupère les dépenses organisées par catégorie.
 
-
-- 
